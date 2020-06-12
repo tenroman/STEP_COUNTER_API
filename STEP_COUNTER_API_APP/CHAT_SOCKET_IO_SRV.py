@@ -22,18 +22,6 @@ sio.attach(app)
 from STEP_COUNTER_API_APP.models import Chat
 
 
-
-# we can define aiohttp endpoints just as we normally
-# would with no change
-async def index(request):
-    with open('/home/JAPRONTO_PLAYER/SOKET_IO_CHAT_SERVER/chat.html') as f:
-        return web.Response(text=f.read(), content_type='text/html')
-
-# If we wanted to create a new websocket endpoint,
-# use this decorator, passing in the name of the
-# event we wish to listen out for
-
-
 def check_access_from_firdaus_API(auth_key):
     user_has_access = requests.request(method='POST', url='http://player.spg.uz/api/mic/user',
                                        json={"auth_token": auth_key})
